@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CCFF00" >
+    android:background="#000000" >
    
 
     <EditText
@@ -14,6 +14,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="26dp"
         android:hint="Enter your name"
+        android:textColor="#FFFFFF"
     	android:inputType="textPersonName"
         android:ems="10" >
 
@@ -29,7 +30,7 @@
         android:layout_below="@+id/saveresult"
         android:layout_marginTop="20dp"
         android:onClick="onClick"
-        android:background="@color/other"
+        android:background="@color/smeshka"
         android:text="Go to menu" />
 
     <TextView
@@ -39,6 +40,7 @@
         android:layout_alignLeft="@+id/recordName"
         android:layout_below="@+id/gotomenu"
         android:layout_marginTop="60dp"
+        android:textColor="#FFFFFF"
         android:text="" />
 
     <TextView
@@ -49,6 +51,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="80dp"
         android:text="TextView"
+        android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
     <Button
@@ -60,7 +63,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="14dp"
         android:onClick="onClick"
-        android:background="@color/other"
+        android:background="@color/smeshka"
         android:text="Save result" />
 
 </RelativeLayout>

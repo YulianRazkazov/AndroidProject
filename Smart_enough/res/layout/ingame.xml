@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#CCFF00"
+    android:background="#000000"
     tools:context=".XmlMainActivity" >
 
     <TextView
@@ -16,6 +16,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="46dp"
+        android:textColor="#FFFFFF"
         android:textSize="25sp" />
 
     <TextView
@@ -25,6 +26,7 @@
         android:layout_alignLeft="@+id/Question"
         android:layout_alignParentTop="true"
         android:text=""
+        android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
       <Button
@@ -78,7 +80,7 @@
           android:layout_height="wrap_content"
           android:layout_alignParentRight="true"
           android:layout_alignTop="@+id/StreakCounter"
-          android:background="@color/other"
+          android:background="@color/smeshka"
           android:onClick="onClick"
           android:text="Menu" />
 
@@ -90,7 +92,7 @@
           android:layout_alignTop="@+id/StreakCounter"
           android:layout_marginRight="14dp"
           android:layout_toLeftOf="@+id/Menu"
-          android:background="@color/other"
+          android:background="@color/smeshka"
           android:onClick="onClick"
           android:text="Jokers" />
 

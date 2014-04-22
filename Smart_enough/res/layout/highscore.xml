@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-    android:background="#CCFF00">
+    android:background="#000000">
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -18,7 +18,7 @@
 	        android:layout_alignParentTop="true"
 	        android:layout_marginTop="37dp"
 	        android:lineSpacingMultiplier="1.2"
-	        android:textColor="#006400"
+	        android:textColor="#FFFFFF"
 	        android:gravity="center"
 	        android:ellipsize="end"
 	        android:hint="You don't have records yet!"
@@ -35,7 +35,7 @@
         android:layout_above="@+id/deletebutton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="28dp"
-        android:background="@color/other"
+        android:background="@color/smeshka"
         android:onClick="onClick"
         android:text="Back to menu" />
 
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/other"
+        android:background="@color/smeshka"
         android:onClick="onClick"
         android:text="Reset" />
 
