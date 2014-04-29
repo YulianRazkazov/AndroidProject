@@ -53,6 +53,10 @@ public class HighScore extends Activity {
 		case R.id.backbutton:
 			finish();
 			break;
+		case R.id.deletebutton:
+			deleteFile("Scores.txt");
+			finish();
+			break;
 		}
 	}
 }

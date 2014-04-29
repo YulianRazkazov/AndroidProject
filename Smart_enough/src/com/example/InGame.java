@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +23,7 @@ public class InGame extends Activity {
 	public static Activity thisActivity;
 	int i=0;
 	Toast status;
-	static int correct_answer;
+	static int correct_answer, resume_functionality = 0;
 	int linescount=0;
 	static int rightAnswersCounter;
 	ArrayList<Integer> invalidNumbers = new ArrayList<Integer>();
@@ -60,8 +61,21 @@ public class InGame extends Activity {
 		}
 		all_info = new String[linescount];		
 		readFile(all_info);
-		init();
 		thisActivity  = this;
+	}
+	
+	protected void onResume() {
+		super.onResume();
+		if (resume_functionality == 0){
+			init();
+			resume_functionality++;
+		}
+	}
+	
+	protected void onDestroy(){
+		super.onDestroy();
+		resume_functionality = 0;
+		for (int i=0;i<3;i++) Jokers.used[i] = 0;
 	}
 	
 	protected void init(){
@@ -171,6 +185,7 @@ public class InGame extends Activity {
 		switch(v.getId()) {
 	        case R.id.A:
 	        	if (correct_answer == 0){
+	        		//N1.setBackgroundColor(Color.parseColor("#41A317"));
 	        		status.show();
 	        		init();
 	        		rightAnswersCounter++;
