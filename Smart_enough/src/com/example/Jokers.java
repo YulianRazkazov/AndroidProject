@@ -33,17 +33,19 @@ public class Jokers extends Activity {
 		} while (i==rightAnswerNumber || j==rightAnswerNumber || i==j);
 		
 		for(int k=0;k<3;k++){
-			System.out.println("Used are " + used[k]);
 			if (used[k] == 1){
 				switch (k){
 					case 0:
-						audience.setVisibility(View.GONE);
+						audience.setBackgroundResource(R.drawable.joker_public_gg);
+						audience.setEnabled(false);
 						break;
 					case 1:
-						change.setVisibility(View.GONE);
+						change.setBackgroundResource(R.drawable.joker_change_gg);
+						change.setEnabled(false);
 						break;
 					case 2:
-						fifty.setVisibility(View.GONE);
+						fifty.setBackgroundResource(R.drawable.joker_50_gg);
+						fifty.setEnabled(false);
 						break;
 				}
 			}

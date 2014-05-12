@@ -5,10 +5,12 @@
     android:background="#000000">
 
     <ScrollView
+        android:id="@+id/mainScroll"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/backbutton"
-        android:layout_alignParentRight="true" >
+        android:layout_alignParentRight="true" 
+        android:scrollbars="none">
 
          <TextView
 	        android:id="@+id/scoretext"

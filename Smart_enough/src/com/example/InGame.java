@@ -181,12 +181,14 @@ public class InGame extends Activity {
 		return;
 	}
 	
-	public void onClick(View v) {
+	public void onClick(View v) throws InterruptedException {
 		switch(v.getId()) {
 	        case R.id.A:
 	        	if (correct_answer == 0){
-	        		//N1.setBackgroundColor(Color.parseColor("#41A317"));
+	        		//N1.setBackgroundColor(Color.parseColor("#33FF00"));
+	        		//sleepThread.start();
 	        		status.show();
+	        		//sleepThread.join();
 	        		init();
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
@@ -196,7 +198,10 @@ public class InGame extends Activity {
 	        	break;
 	        case R.id.B:
 	        	if (correct_answer == 1){
+	        		//N2.setBackgroundColor(Color.parseColor("#33FF00"));
+	        		//sleepThread.start();
 	        		status.show();
+	        		//sleepThread.join();
 	        		init();
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
@@ -206,7 +211,10 @@ public class InGame extends Activity {
 	        	break;
 	        case R.id.C:
 	        	if (correct_answer == 2){
+	        		//N3.setBackgroundColor(Color.parseColor("#33FF00"));
+	        		//sleepThread.start();
 	        		status.show();
+	        		//sleepThread.join();
 	        		init();
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
@@ -216,7 +224,10 @@ public class InGame extends Activity {
 	        	break;
 	        case R.id.D:
 	        	if (correct_answer == 3){
+	        		//N4.setBackgroundColor(Color.parseColor("#33FF00"));
+	        		//sleepThread.start();
 	        		status.show();
+	        		//sleepThread.join();
 	        		init();
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
@@ -256,5 +267,14 @@ public class InGame extends Activity {
 	public static int getCurrentRightAnswerNumber(){
 		return correct_answer;
 	}
-	
+	    
+/*	Thread sleepThread = new Thread(){
+        public void run(){
+    		try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+        }
+    };*/
 }

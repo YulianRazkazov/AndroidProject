@@ -11,17 +11,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class HighScore extends Activity {
 	Button Back;
 	TextView Scoretext;
 	String Output, Score;
+	ScrollView myScrollView;
 	int i;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.highscore);
+		myScrollView = (ScrollView) findViewById(R.id.mainScroll);
+		
+		myScrollView.setVerticalScrollBarEnabled(false);
+		myScrollView.setHorizontalScrollBarEnabled(false);
 		
 		Back = (Button) findViewById (R.id.backbutton);
 		Scoretext = (TextView) findViewById(R.id.scoretext);
