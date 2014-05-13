@@ -8,21 +8,18 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.graphics.Color;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class InGame extends Activity {
 	
 	public static Activity thisActivity;
 	int i=0;
-	Toast status;
 	static int correct_answer, resume_functionality = 0;
 	int linescount=0;
 	static int rightAnswersCounter;
@@ -39,6 +36,25 @@ public class InGame extends Activity {
 	boolean correct = true;
 	static String[] answers = new String[4];
 	Random random = new Random();
+	Handler handler = new Handler(); 
+	Runnable run_right = new Runnable() {
+		 public void run() { 
+             init();
+			 N1.setBackgroundResource(R.color.ingame);
+			 N2.setBackgroundResource(R.color.ingame);
+			 N3.setBackgroundResource(R.color.ingame);
+			 N4.setBackgroundResource(R.color.ingame);
+        } 
+	};
+	Runnable run_wrong = new Runnable() {
+		 public void run() { 
+			 goToAnsweredWrong();
+			 N1.setBackgroundResource(R.color.ingame);
+			 N2.setBackgroundResource(R.color.ingame);
+			 N3.setBackgroundResource(R.color.ingame);
+			 N4.setBackgroundResource(R.color.ingame);
+       } 
+	};
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +68,6 @@ public class InGame extends Activity {
 		StreakCounter = (TextView) findViewById(R.id.StreakCounter);
 		StreakCounter.setText("Show your knowledge");
 		rightAnswersCounter = 0;
-		status = Toast.makeText(getApplicationContext(), "Correct", Toast.LENGTH_SHORT);
-		status.setGravity(Gravity.TOP|Gravity.LEFT, 0, 45);
 		try {
 			countLines();
 		} catch (IOException e) {
@@ -82,16 +96,11 @@ public class InGame extends Activity {
 		i = 0;
 		correct_answer = 5;
 		
-		// zima sledvashtiqt vupros s otgovorite kum nego
 		getNextQuestion();
 		
-		// razburkva otgovorite
 		shuffleArray(answers);
 		
-		//izkarva otgovorite vurhu butonite
 		setButtonText();
-		
-		
 	}
 	
 	private void getNextQuestion(){
@@ -185,54 +194,46 @@ public class InGame extends Activity {
 		switch(v.getId()) {
 	        case R.id.A:
 	        	if (correct_answer == 0){
-	        		//N1.setBackgroundColor(Color.parseColor("#33FF00"));
-	        		//sleepThread.start();
-	        		status.show();
-	        		//sleepThread.join();
-	        		init();
+	        		N1.setBackgroundResource(R.color.ingame_answered_right);
+	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
-	        		goToAnsweredWrong();
+	        		N1.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.B:
 	        	if (correct_answer == 1){
-	        		//N2.setBackgroundColor(Color.parseColor("#33FF00"));
-	        		//sleepThread.start();
-	        		status.show();
-	        		//sleepThread.join();
-	        		init();
+	        		N2.setBackgroundResource(R.color.ingame_answered_right);
+	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
-	        		goToAnsweredWrong();
+	        		N2.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.C:
 	        	if (correct_answer == 2){
-	        		//N3.setBackgroundColor(Color.parseColor("#33FF00"));
-	        		//sleepThread.start();
-	        		status.show();
-	        		//sleepThread.join();
-	        		init();
+	        		N3.setBackgroundResource(R.color.ingame_answered_right);
+	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
-	        		goToAnsweredWrong();
+	        		N3.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.D:
 	        	if (correct_answer == 3){
-	        		//N4.setBackgroundColor(Color.parseColor("#33FF00"));
-	        		//sleepThread.start();
-	        		status.show();
-	        		//sleepThread.join();
-	        		init();
+	        		N4.setBackgroundResource(R.color.ingame_answered_right);
+	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
-	        		goToAnsweredWrong();
+	        		N4.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.Jokers:
@@ -267,14 +268,5 @@ public class InGame extends Activity {
 	public static int getCurrentRightAnswerNumber(){
 		return correct_answer;
 	}
-	    
-/*	Thread sleepThread = new Thread(){
-        public void run(){
-    		try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-        }
-    };*/
+
 }
