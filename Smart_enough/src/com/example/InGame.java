@@ -40,19 +40,13 @@ public class InGame extends Activity {
 	Runnable run_right = new Runnable() {
 		 public void run() { 
              init();
-			 N1.setBackgroundResource(R.color.ingame);
-			 N2.setBackgroundResource(R.color.ingame);
-			 N3.setBackgroundResource(R.color.ingame);
-			 N4.setBackgroundResource(R.color.ingame);
+			 setDefaultButton();
         } 
 	};
 	Runnable run_wrong = new Runnable() {
 		 public void run() { 
 			 goToAnsweredWrong();
-			 N1.setBackgroundResource(R.color.ingame);
-			 N2.setBackgroundResource(R.color.ingame);
-			 N3.setBackgroundResource(R.color.ingame);
-			 N4.setBackgroundResource(R.color.ingame);
+			 setDefaultButton();
        } 
 	};
 	
@@ -195,44 +189,52 @@ public class InGame extends Activity {
 	        case R.id.A:
 	        	if (correct_answer == 0){
 	        		N1.setBackgroundResource(R.color.ingame_answered_right);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
 	        		N1.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.B:
 	        	if (correct_answer == 1){
 	        		N2.setBackgroundResource(R.color.ingame_answered_right);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
 	        		N2.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.C:
 	        	if (correct_answer == 2){
 	        		N3.setBackgroundResource(R.color.ingame_answered_right);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
 	        		N3.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
 	        case R.id.D:
 	        	if (correct_answer == 3){
 	        		N4.setBackgroundResource(R.color.ingame_answered_right);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_right, 500);
 	        		rightAnswersCounter++;
 	        		StreakCounter.setText("Streak of " + String.valueOf(rightAnswersCounter));
 	        	}else{
 	        		N4.setBackgroundResource(R.color.ingame_answered_wrong);
+	        		setUnclickableButtons();
 	        		handler.postDelayed(run_wrong, 500);
 	        	}
 	        	break;
@@ -267,6 +269,24 @@ public class InGame extends Activity {
 	
 	public static int getCurrentRightAnswerNumber(){
 		return correct_answer;
+	}
+	
+	void setDefaultButton(){
+		N1.setBackgroundResource(R.color.ingame);
+		N2.setBackgroundResource(R.color.ingame);
+		N3.setBackgroundResource(R.color.ingame);
+		N4.setBackgroundResource(R.color.ingame);
+		N1.setClickable(true);
+		N2.setClickable(true);
+		N3.setClickable(true);
+		N4.setClickable(true);
+	}
+	
+	void setUnclickableButtons(){
+		N1.setClickable(false);
+		N2.setClickable(false);
+		N3.setClickable(false);
+		N4.setClickable(false);
 	}
 
 }
